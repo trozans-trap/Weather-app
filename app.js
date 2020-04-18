@@ -1,25 +1,11 @@
 var express = require('express');
 var request = require('request');
-var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-
-var City = require('./models/data');
 
 var app = express();
 
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({ extended : true}));
-
-// var city = 'Las Vegas';
-
-
-//Db config
-const db = require('./config/keys').MongoURI;
-
-//Connect to Mongo
-mongoose.connect(db, {useUnifiedTopology: true, useNewUrlParser: true})
- .then(()=> console.log('MongoDb Connected...'))
- .catch(err=> console.log(err));
 
 var city ='New Delhi';
 var url =`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=c3b0a15935292c27087140ab506aec5f`;
