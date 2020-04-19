@@ -22,7 +22,7 @@ app.get('/',(req,res)=>{
             temperature: Math.round(weather_json.main.temp),
             description : weather_json.weather[0].description,
             icon: weather_json.weather[0].icon,
-            message:city+ "'s weather Found"
+            message:city+ " weather Found"
         };
 
         var weather_data = {weather : weather};
@@ -42,7 +42,7 @@ app.post('/',(req,res)=>{
         console.log(weather_json);
         if(weather_json.message=='city not found')
             {
-               weather.message=city +"'s weather Not Found";
+               weather.message=city +" weather Not Found";
                 var weather_data = {weather : weather};
                 res.render('wether',weather_data);
             }
@@ -53,7 +53,7 @@ app.post('/',(req,res)=>{
                 temperature: Math.round(weather_json.main.temp),
                 description : weather_json.weather[0].description,
                 icon: weather_json.weather[0].icon,
-                message: city+ "'s weather found"
+                message: city+ " weather found"
             };
     
             var weather_data = {weather : weather};
